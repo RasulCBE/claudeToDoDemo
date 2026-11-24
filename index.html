@@ -1,3 +1,6 @@
+Index · HTML
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +46,7 @@
     --primary-soft: #232a55;
     --shadow: 0 10px 40px -12px rgba(0, 0, 0, .6);
   }
-
+ 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
@@ -58,9 +61,9 @@
     padding: 48px 16px 64px;
     transition: background .3s, color .3s;
   }
-
+ 
   .app { max-width: 720px; margin: 0 auto; }
-
+ 
   /* Header */
   header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; gap: 16px; }
   .brand { display: flex; align-items: center; gap: 14px; }
@@ -73,7 +76,7 @@
   .logo svg { width: 24px; height: 24px; }
   h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -.02em; }
   .date { font-size: .85rem; color: var(--muted); margin-top: 2px; }
-
+ 
   .icon-btn {
     width: 42px; height: 42px; border-radius: 12px; border: 1px solid var(--border);
     background: var(--card); color: var(--text); cursor: pointer; display: grid; place-items: center;
@@ -82,13 +85,13 @@
   }
   .icon-btn:hover { transform: translateY(-1px); border-color: var(--primary); }
   .icon-btn svg { width: 19px; height: 19px; }
-
+ 
   /* Card */
   .card {
     background: var(--card); border: 1px solid var(--border);
     border-radius: var(--radius); box-shadow: var(--shadow);
   }
-
+ 
   /* Stats */
   .stats { padding: 20px 22px; margin-bottom: 18px; }
   .stats-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
@@ -100,7 +103,7 @@
     background: linear-gradient(90deg, var(--primary), #a855f7);
     transition: width .5s cubic-bezier(.4, 0, .2, 1);
   }
-
+ 
   /* Add form */
   .add { padding: 18px; margin-bottom: 18px; }
   .add-row { display: flex; gap: 10px; }
@@ -110,7 +113,7 @@
     outline: none; transition: border-color .2s, box-shadow .2s;
   }
   .add input::placeholder { color: var(--muted); }
-  .add input:focus, .add select:focus, .add input[type="date"]:focus {
+  .add input:focus, .add select:focus, .add input[type="date"]:focus, .add input[type="time"]:focus {
     border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-soft);
   }
   .btn {
@@ -123,15 +126,15 @@
   .btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
   .btn:active { transform: translateY(0); }
   .btn svg { width: 18px; height: 18px; }
-
+ 
   .add-options { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
-  .add select, .add input[type="date"] {
+  .add select, .add input[type="date"], .add input[type="time"] {
     padding: 10px 12px; font: inherit; font-size: .88rem; border-radius: 10px;
     border: 1px solid var(--border); background: var(--card-soft); color: var(--text); outline: none;
     transition: border-color .2s, box-shadow .2s; cursor: pointer;
   }
-  [data-theme="dark"] input[type="date"] { color-scheme: dark; }
-
+  [data-theme="dark"] input[type="date"], [data-theme="dark"] input[type="time"] { color-scheme: dark; }
+ 
   /* Toolbar */
   .toolbar { display: flex; gap: 12px; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; }
   .tabs { display: flex; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 4px; gap: 2px; }
@@ -151,7 +154,7 @@
     transition: border-color .2s, box-shadow .2s;
   }
   .search input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-soft); }
-
+ 
   /* List */
   ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .task {
@@ -166,11 +169,11 @@
   .task.dragging { opacity: .4; }
   .task.drag-over { border-color: var(--primary); border-style: dashed; }
   @keyframes pop { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: none; } }
-
+ 
   .grip { color: var(--muted); cursor: grab; opacity: .5; display: grid; place-items: center; }
   .grip svg { width: 16px; height: 16px; }
   .task:hover .grip { opacity: 1; }
-
+ 
   .check {
     appearance: none; -webkit-appearance: none; width: 24px; height: 24px; flex-shrink: 0;
     border: 2px solid var(--border); border-radius: 8px; cursor: pointer; display: grid; place-items: center;
@@ -183,7 +186,7 @@
     transform: rotate(45deg) translate(-1px, -1px);
   }
   .check:focus-visible { outline: 3px solid var(--primary-soft); outline-offset: 2px; }
-
+ 
   .body { flex: 1; min-width: 0; }
   .title {
     font-size: .98rem; font-weight: 500; word-break: break-word; cursor: text;
@@ -207,7 +210,7 @@
   .chip.low .dot { background: var(--low); }
   .chip.overdue { color: var(--danger); border-color: color-mix(in srgb, var(--danger) 35%, transparent); background: color-mix(in srgb, var(--danger) 10%, transparent); }
   .chip.today { color: var(--medium); border-color: color-mix(in srgb, var(--medium) 35%, transparent); background: color-mix(in srgb, var(--medium) 10%, transparent); }
-
+ 
   .actions { display: flex; gap: 4px; opacity: 0; transition: opacity .2s; }
   .task:hover .actions, .task:focus-within .actions { opacity: 1; }
   .act {
@@ -217,7 +220,13 @@
   .act svg { width: 17px; height: 17px; }
   .act:hover { background: var(--primary-soft); color: var(--primary); }
   .act.del:hover { background: color-mix(in srgb, var(--danger) 12%, transparent); color: var(--danger); }
-
+ 
+  /* Share buttons */
+  .act.wa:hover { background: rgba(37, 211, 102, .14); color: #25d366; }
+  .act.gm:hover { background: rgba(234, 67, 53, .12); color: #ea4335; }
+  .act.li:hover { background: rgba(10, 102, 194, .14); color: #0a66c2; }
+  .act.wa, .act.gm, .act.li { width: 32px; }
+ 
   /* Empty */
   .empty { text-align: center; padding: 48px 20px; color: var(--muted); }
   .empty .art {
@@ -227,7 +236,7 @@
   .empty .art svg { width: 40px; height: 40px; }
   .empty h3 { color: var(--text); font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
   .empty p { font-size: .9rem; }
-
+ 
   /* Footer */
   .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; color: var(--muted); font-size: .86rem; }
   .link-btn {
@@ -235,7 +244,7 @@
     padding: 6px 10px; border-radius: 8px; transition: all .2s;
   }
   .link-btn:hover { color: var(--danger); background: color-mix(in srgb, var(--danger) 10%, transparent); }
-
+ 
   /* Toast */
   .toast {
     position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 20px); opacity: 0; pointer-events: none;
@@ -246,10 +255,12 @@
   .toast.show { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
   .toast button { background: none; border: 0; color: #a5b4fc; font: inherit; font-weight: 700; cursor: pointer; }
   [data-theme="dark"] .toast button { color: var(--primary-dark); }
-
+ 
   @media (max-width: 560px) {
     body { padding-top: 28px; }
     .actions { opacity: 1; }
+    .task { flex-wrap: wrap; }
+    .actions { width: 100%; justify-content: flex-end; flex-wrap: wrap; }
     .btn span { display: none; }
     .btn { padding: 0 16px; }
     .grip { display: none; }
@@ -272,7 +283,7 @@
     </div>
     <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle theme"></button>
   </header>
-
+ 
   <section class="card stats" aria-label="Progress">
     <div class="stats-top">
       <strong id="progressTitle">Your progress</strong>
@@ -280,7 +291,7 @@
     </div>
     <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="progressBar"><div id="progressFill"></div></div>
   </section>
-
+ 
   <form class="card add" id="addForm" autocomplete="off">
     <div class="add-row">
       <input type="text" id="taskInput" placeholder="What needs to be done?" maxlength="200" aria-label="New task" required>
@@ -296,9 +307,10 @@
         <option value="high">High priority</option>
       </select>
       <input type="date" id="dueInput" aria-label="Due date">
+      <input type="time" id="timeInput" aria-label="Time">
     </div>
   </form>
-
+ 
   <div class="toolbar">
     <div class="tabs" role="tablist" id="tabs">
       <button class="tab active" data-filter="all" role="tab">All</button>
@@ -310,33 +322,36 @@
       <input type="search" id="searchInput" placeholder="Search tasks…" aria-label="Search tasks">
     </label>
   </div>
-
+ 
   <ul id="list" aria-live="polite"></ul>
-
+ 
   <div class="footer" id="footer">
     <span id="countText"></span>
     <button class="link-btn" id="clearBtn">Clear completed</button>
   </div>
 </div>
-
+ 
 <div class="toast" id="toast" role="status"><span id="toastMsg"></span><button id="undoBtn">Undo</button></div>
-
+ 
 <script>
 (() => {
   'use strict';
-
+ 
   const STORAGE_KEY = 'taskly.tasks.v1';
   const THEME_KEY = 'taskly.theme';
-
+ 
   const $ = (id) => document.getElementById(id);
   const els = {
-    list: $('list'), form: $('addForm'), input: $('taskInput'), priority: $('priorityInput'), due: $('dueInput'),
+    list: $('list'), form: $('addForm'), input: $('taskInput'), priority: $('priorityInput'), due: $('dueInput'), time: $('timeInput'),
     search: $('searchInput'), tabs: $('tabs'), count: $('countText'), clear: $('clearBtn'), footer: $('footer'),
     progressFill: $('progressFill'), progressText: $('progressText'), progressBar: $('progressBar'), progressTitle: $('progressTitle'),
     theme: $('themeBtn'), today: $('today'), toast: $('toast'), toastMsg: $('toastMsg'), undo: $('undoBtn')
   };
-
+ 
   const icons = {
+    whatsapp: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.43 15.1L2 22l5.04-1.32A9.93 9.93 0 1 0 12.04 2zm0 18.1c-1.5 0-2.97-.4-4.26-1.17l-.3-.18-3 .78.8-2.92-.2-.31a8.1 8.1 0 1 1 6.96 3.8zm4.45-6.06c-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.8-.2-.47-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.5.58.18 1.1.16 1.51.1.46-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>',
+    mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>',
+    linkedin: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11.5H3V9.75zm6.5 0h3.83v1.57h.06c.53-1 1.84-2.07 3.78-2.07 4.04 0 4.78 2.66 4.78 6.12v5.88h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75v5.29h-4V9.75z"/></svg>',
     sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
     moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>',
     edit: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>',
@@ -344,7 +359,7 @@
     grip: '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.6"/><circle cx="15" cy="6" r="1.6"/><circle cx="9" cy="12" r="1.6"/><circle cx="15" cy="12" r="1.6"/><circle cx="9" cy="18" r="1.6"/><circle cx="15" cy="18" r="1.6"/></svg>',
     clipboard: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="3"/><path d="M9 4.5h6M9 12l2 2 4-4"/></svg>'
   };
-
+ 
   // ---------- State ----------
   let tasks = load();
   let filter = 'all';
@@ -352,7 +367,7 @@
   let lastDeleted = null;
   let toastTimer = null;
   let dragId = null;
-
+ 
   function load() {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch { return []; }
   }
@@ -360,13 +375,22 @@
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks)); } catch {}
   }
   const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
-
+ 
   // ---------- Dates ----------
   const todayStr = () => {
     const d = new Date();
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   };
-  function formatDue(str) {
+  function fmtTime(time) {
+    const [h, m] = time.split(':').map(Number);
+    const d = new Date(); d.setHours(h, m, 0, 0);
+    return d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+  }
+  function nowHM() {
+    const d = new Date();
+    return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+  }
+  function formatDue(str, time) {
     const [y, m, d] = str.split('-').map(Number);
     const date = new Date(y, m - 1, d);
     const t = todayStr();
@@ -377,9 +401,11 @@
     if (str === t) { label = 'Today'; cls = 'today'; }
     else if (str === tomStr) { label = 'Tomorrow'; }
     else if (str < t) { cls = 'overdue'; label = 'Overdue · ' + label; }
+    if (str === t && time && time < nowHM()) { cls = 'overdue'; label = 'Overdue · Today'; }
+    if (time) label += ' · ' + fmtTime(time);
     return { label, cls };
   }
-
+ 
   // ---------- Theme ----------
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
@@ -395,7 +421,7 @@
   els.theme.addEventListener('click', () => {
     applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
   });
-
+ 
   // ---------- Render ----------
   function visibleTasks() {
     const q = query.trim().toLowerCase();
@@ -406,11 +432,11 @@
       return true;
     });
   }
-
+ 
   function render() {
     els.list.innerHTML = '';
     const items = visibleTasks();
-
+ 
     if (!items.length) {
       const li = document.createElement('li');
       li.className = 'empty';
@@ -426,48 +452,59 @@
     }
     updateStats();
   }
-
+ 
   function buildItem(t) {
     const li = document.createElement('li');
     li.className = 'task' + (t.done ? ' done' : '');
     li.dataset.id = t.id;
     li.draggable = filter === 'all' && !query;
-
+ 
     const grip = document.createElement('span');
     grip.className = 'grip'; grip.innerHTML = icons.grip; grip.title = 'Drag to reorder';
-
+ 
     const check = document.createElement('input');
     check.type = 'checkbox'; check.className = 'check'; check.checked = t.done;
     check.setAttribute('aria-label', 'Mark "' + t.text + '" as complete');
-
+ 
     const body = document.createElement('div'); body.className = 'body';
     const title = document.createElement('div'); title.className = 'title'; title.textContent = t.text;
     title.title = 'Double-click to edit';
     body.appendChild(title);
-
+ 
     const meta = document.createElement('div'); meta.className = 'meta';
     const pri = document.createElement('span');
     pri.className = 'chip ' + t.priority;
     pri.innerHTML = '<span class="dot"></span>' + t.priority.charAt(0).toUpperCase() + t.priority.slice(1);
     meta.appendChild(pri);
     if (t.due) {
-      const { label, cls } = formatDue(t.due);
+      const { label, cls } = formatDue(t.due, t.time);
       const due = document.createElement('span');
       due.className = 'chip ' + (t.done ? '' : cls);
-      due.textContent = '📅 ' + label;
+      due.textContent = (t.time ? '⏰ ' : '📅 ') + label;
       meta.appendChild(due);
     }
     body.appendChild(meta);
-
+ 
     const actions = document.createElement('div'); actions.className = 'actions';
     const editBtn = document.createElement('button');
     editBtn.className = 'act'; editBtn.innerHTML = icons.edit; editBtn.setAttribute('aria-label', 'Edit task'); editBtn.title = 'Edit';
     const delBtn = document.createElement('button');
     delBtn.className = 'act del'; delBtn.innerHTML = icons.trash; delBtn.setAttribute('aria-label', 'Delete task'); delBtn.title = 'Delete';
-    actions.append(editBtn, delBtn);
-
+    const mkShare = (cls, icon, label, channel) => {
+      const b = document.createElement('button');
+      b.className = 'act ' + cls; b.innerHTML = icon; b.title = label; b.setAttribute('aria-label', label);
+      b.addEventListener('click', () => shareTask(t, channel));
+      return b;
+    };
+    actions.append(
+      mkShare('wa', icons.whatsapp, 'Share on WhatsApp', 'whatsapp'),
+      mkShare('gm', icons.mail, 'Share via Gmail', 'gmail'),
+      mkShare('li', icons.linkedin, 'Share on LinkedIn', 'linkedin'),
+      editBtn, delBtn
+    );
+ 
     li.append(grip, check, body, actions);
-
+ 
     check.addEventListener('change', () => {
       t.done = check.checked; save();
       if (filter === 'all') { li.classList.toggle('done', t.done); updateStats(); }
@@ -476,7 +513,7 @@
     delBtn.addEventListener('click', () => removeTask(t.id, li));
     editBtn.addEventListener('click', () => startEdit(t, title));
     title.addEventListener('dblclick', () => startEdit(t, title));
-
+ 
     // Drag & drop reordering
     li.addEventListener('dragstart', (e) => {
       dragId = t.id; li.classList.add('dragging');
@@ -498,10 +535,10 @@
       tasks.splice(to, 0, moved);
       save(); render();
     });
-
+ 
     return li;
   }
-
+ 
   function startEdit(t, titleEl) {
     const input = document.createElement('input');
     input.className = 'edit-input'; input.value = t.text; input.maxLength = 200;
@@ -520,7 +557,7 @@
     });
     input.addEventListener('blur', () => finish(true));
   }
-
+ 
   function updateStats() {
     const total = tasks.length;
     const done = tasks.filter(t => t.done).length;
@@ -534,14 +571,68 @@
     els.footer.style.display = total ? 'flex' : 'none';
     els.clear.style.visibility = done ? 'visible' : 'hidden';
   }
-
+ 
   // ---------- Actions ----------
-  function addTask(text, priority, due) {
-    tasks.unshift({ id: uid(), text, priority, due: due || '', done: false, created: Date.now() });
+  function shareMessage(t) {
+    const lines = ['📌 ' + t.text];
+    if (t.due) {
+      const [y, m, d] = t.due.split('-').map(Number);
+      const when = new Date(y, m - 1, d).toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+      lines.push('🗓 ' + when + (t.time ? ' at ' + fmtTime(t.time) : ''));
+    }
+    lines.push('Priority: ' + t.priority.charAt(0).toUpperCase() + t.priority.slice(1));
+    lines.push('Status: ' + (t.done ? 'Completed ✅' : 'Pending'));
+    return lines.join('\n');
+  }
+ 
+  function shareTask(t, channel) {
+    const text = shareMessage(t);
+    const enc = encodeURIComponent;
+    let url;
+    if (channel === 'whatsapp') {
+      url = 'https://wa.me/?text=' + enc(text);
+    } else if (channel === 'gmail') {
+      url = 'https://mail.google.com/mail/?view=cm&fs=1&su=' + enc((t.time ? 'Meeting / Task: ' : 'Task: ') + t.text) + '&body=' + enc(text);
+    } else {
+      url = 'https://www.linkedin.com/feed/?shareActive=true&text=' + enc(text);
+      try { navigator.clipboard && navigator.clipboard.writeText(text); } catch {}
+      showToast('Copied to clipboard — paste it in LinkedIn if needed');
+    }
+    window.open(url, '_blank', 'noopener');
+  }
+ 
+  // Reminders: alert when a task's due time arrives
+  function checkReminders() {
+    const now = Date.now();
+    let changed = false;
+    tasks.forEach(t => {
+      if (t.done || t.notified || !t.due || !t.time) return;
+      const [y, m, d] = t.due.split('-').map(Number);
+      const [h, min] = t.time.split(':').map(Number);
+      const ts = new Date(y, m - 1, d, h, min).getTime();
+      if (now >= ts && now - ts < 5 * 60 * 1000) {
+        t.notified = true; changed = true;
+        showToast('⏰ Now: ' + t.text, null, 10000);
+        try {
+          if ('Notification' in window && Notification.permission === 'granted') {
+            new Notification('Taskly reminder', { body: t.text });
+          }
+        } catch {}
+      }
+    });
+    if (changed) save();
+  }
+ 
+  function addTask(text, priority, due, time) {
+    if (time && !due) due = todayStr();
+    if (time && 'Notification' in window && Notification.permission === 'default') {
+      try { Notification.requestPermission(); } catch {}
+    }
+    tasks.unshift({ id: uid(), text, priority, due: due || '', time: time || '', done: false, notified: false, created: Date.now() });
     save();
     if (filter === 'completed') setFilter('all'); else render();
   }
-
+ 
   function removeTask(id, li) {
     const idx = tasks.findIndex(t => t.id === id);
     if (idx < 0) return;
@@ -557,7 +648,7 @@
     };
     if (li) { li.classList.add('removing'); setTimeout(commit, 220); } else commit();
   }
-
+ 
   function clearCompleted() {
     const removed = tasks.filter(t => t.done);
     if (!removed.length) return;
@@ -568,7 +659,7 @@
       tasks = backup; save(); render();
     });
   }
-
+ 
   function setFilter(f) {
     filter = f;
     els.tabs.querySelectorAll('.tab').forEach(b => {
@@ -578,23 +669,24 @@
     });
     render();
   }
-
-  function showToast(msg, onUndo) {
+ 
+  function showToast(msg, onUndo, duration) {
     els.toastMsg.textContent = msg;
     els.toast.classList.add('show');
+    els.undo.style.display = onUndo ? '' : 'none';
     els.undo.onclick = () => { onUndo && onUndo(); hideToast(); };
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(hideToast, 5000);
+    toastTimer = setTimeout(hideToast, duration || 5000);
   }
   function hideToast() { els.toast.classList.remove('show'); }
-
+ 
   // ---------- Events ----------
   els.form.addEventListener('submit', (e) => {
     e.preventDefault();
     const text = els.input.value.trim();
     if (!text) return;
-    addTask(text, els.priority.value, els.due.value);
-    els.input.value = ''; els.due.value = ''; els.priority.value = 'medium';
+    addTask(text, els.priority.value, els.due.value, els.time.value);
+    els.input.value = ''; els.due.value = ''; els.time.value = ''; els.priority.value = 'medium';
     els.input.focus();
   });
   els.tabs.addEventListener('click', (e) => {
@@ -602,18 +694,21 @@
   });
   els.search.addEventListener('input', () => { query = els.search.value; render(); });
   els.clear.addEventListener('click', clearCompleted);
-
+ 
   // Keyboard shortcut: "/" focuses the add box
   document.addEventListener('keydown', (e) => {
     if (e.key === '/' && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) {
       e.preventDefault(); els.input.focus();
     }
   });
-
+ 
   // ---------- Init ----------
   els.today.textContent = new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
   render();
+  checkReminders();
+  setInterval(() => { checkReminders(); render(); }, 30000);
 })();
 </script>
 </body>
 </html>
+ 
